@@ -61,10 +61,10 @@ public class Day10 {
         }
         
         long paths = 0;
-        ArrayList<Integer> children = getNextAdapters(c);
         if (Collections.max(adapters) == c) {
             paths++;
         } else {
+            ArrayList<Integer> children = getNextAdapters(c);
             for (int i=0; i < children.size(); i++) {            
                 paths += getPaths(children.get(i));
             }
