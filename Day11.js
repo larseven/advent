@@ -35,20 +35,14 @@ function getNewState(row, col) {
 }
 
 function getFirstSeenSeat(row, col, rowIndex, colIndex) {
-    let check = "";
+    let check = ".";
     let n = 1;
-    while(check != "E") {
+    while(check == ".") {
         check = getState(row + (rowIndex*n), col + (colIndex*n));
-        if (check == "L") {
-            return "L";
-        }
-        if (check == "#") {
-            return "#";
-        }
         n++;
     }
     
-    return "E";    
+    return check;    
 }
 
 function getState(row, col) {
