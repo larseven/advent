@@ -52,10 +52,7 @@ function getFirstSeenSeat(row, col, rowIndex, colIndex) {
 }
 
 function getState(row, col) {
-    if (row == -1 || row >= rows) {
-        return "E";
-    }
-    if (col == -1 || col >= cols) {
+    if (row == -1 || row >= rows || col == -1 || col >= cols) {
         return "E";
     }
     return currentSeats[row][col];
@@ -74,26 +71,11 @@ function getNewSeating() {
 }
 
 function seatsAreEqual(oldSeats, newSeats) {
-    for (j = 0; j < rows; j++) {
-        for (k = 0; k < cols; k++) {
-            if (oldSeats[j][k] != newSeats[j][k]) {
-                return false;
-            }
-        }
-    }
-    return true;
+    return JSON.stringify(oldSeats)==JSON.stringify(newSeats);
 }
 
 function getOccupiedSeats(seats) {
-    let count = 0;
-    for (j = 0; j < rows; j++) {
-        for (k = 0; k < cols; k++) {
-            if (seats[j][k] == "#") {
-                count++;
-            }
-        }
-    }
-    return count;
+    return JSON.stringify(seats).split("#").length - 1;
 }
 
 function onInputsRead() {
