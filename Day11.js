@@ -34,11 +34,11 @@ function getNewState(row, col) {
     return currentState;
 }
 
-function getFirstSeenSeat(row, col, rowIndex, colIndex) {
+function getFirstSeenSeat(row, col, rowDirection, colDirection) {
     let check = ".";
     let n = 1;
     while(check == ".") {
-        check = getState(row + (rowIndex*n), col + (colIndex*n));
+        check = getState(row + (rowDirection*n), col + (colDirection*n));
         n++;
     }
     
