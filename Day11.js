@@ -13,9 +13,9 @@ function getNewState(row, col) {
     }
 
     let occupied = 0;
-    let numbers = [-1, 0, 1];
-    numbers.forEach(i => {
-        numbers.forEach(j => {
+    let directions = [-1, 0, 1];
+    directions.forEach(i => {
+        directions.forEach(j => {
             if (! (i==0 && j==0)) {
                 if (getFirstSeenSeat(row, col, i, j) == "#") {
                     occupied++;
